@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div{
+            
+            margin:10px auto;
+            padding:10px;
+            width:500px;
+            text-align:center;
+
+        }
+        #myimg {
+            width: 400px;
+            height: 400px;
+            border: 4px solid #ffff00;
+            margin-bottom:20px;
+        }
+        input{
+            margin:10px;
+            width:70px;
+            padding:10px;
+            border-radius:20px;
+            font:bold 12px tahoma;
+        }
+        input:focus{
+            outline:none;
+            background-color:pink;
+        }
+        
+        .v1{
+            background-color: #ffff00;
+        }
+        .v2{
+            background-color: green;
+        }
+        .v3{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img  src="s1.jpg" id="myimg" />
+        <br />
+        <br />
+        <input class="v1" type="button" value="<<" onclick="nextimgfun();" />
+        <input class="v2" type="button" value="play" onclick="startshowfun();" />
+        <input class="v3" type="button" value="stop" onclick="stopimgfun();" />
+        <input class="v1" type="button" value=">>" onclick="previmgfun();" />
+    </div>
+
+
+    <script>
+        
+        var images = ["s1.jpg", "s2.jpeg", "s3.jpeg", "s4.jpeg ","s5.jpeg", "s6.jpeg", "s7.jpeg"];
+        i = 0;
+        function startshowfun() {
+            t=setInterval("nextimgfun()", 1000);
+        }
+        function nextimgfun() {
+            i++;
+            if (i >= images.length) {
+                i = 0;
+            }
+            myimg.src = images[i];
+        }
+        function previmgfun() {
+            i--;
+            if (i < 0) {
+                i = images.length-1;
+            }
+            myimg.src = images[i];
+        }
+        function stopimgfun() {
+            clearInterval(t);
+        }
+    </script>
+</body>
+</html>
